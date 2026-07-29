@@ -1,18 +1,18 @@
 import dotenv from "dotenv";
-
-
 dotenv.config();
 
- // console.log("DB_HOST =", process.env.DB_HOST);
- // console.log("DB_USER =", process.env.DB_USER);
- // console.log("DB_PASSWORD =", process.env.DB_PASSWORD);
- // console.log("DB_NAME =", process.env.DB_NAME);
+import app from "./app.js";
+import db from "./config/db.js";
 
-import app from './app.js';
-import db from "./Config/db.js";
+const PORT = process.env.PORT || 5000;
 
-
-const PORT =process.env.PORT || 5000;
-app.listen(PORT,()=>{
-    console.log(`server is running on port ${PORT}`);
-})
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+  console.log(process.env.DB_USER);
+  console.log({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
+});
