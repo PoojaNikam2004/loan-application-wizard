@@ -1,66 +1,59 @@
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButton from "../components/NavigationButton";
 
 function Step1LoanType({ nextStep, formData, setFormData }) {
 
- 
-
   const handleNext = () => {
+    if (formData.loanType === "") {
+      alert("Please Select Loan Type");
+      return;
+    }
 
-  if (formData.loanType === "") {
-    alert("Please Select Loan Type");
-    return;
-  }
-
-  nextStep();
-
-};
+    nextStep();
+  };
 
   return (
+    <Layout>
 
-    <div className="row justify-content-center">
+      <Progress step={1} />
 
-      <div className="col-md-6">
+      <StepHeader title="Step 1 : Loan Details" />
 
-        <div className="card shadow-lg p-4">
+      <div className="mb-4">
 
-          <h2 className="text-center mb-4">
-            Loan Application Wizard
-          </h2>
+        <label className="form-label fw-bold">
+          Loan Type
+        </label>
 
-          <h5 className="mb-3">
-            Step 1 : Select Loan Type
-          </h5>
-
-          <select
-  className="form-select mb-4"
-  value={formData.loanType}
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      loanType: e.target.value,
-    })
-  }
->
-  <option value="">Choose Loan Type</option>
-  <option value="Personal">Personal Loan</option>
-  <option value="Home">Home Loan</option>
-  <option value="Business">Business Loan</option>
-</select>
-
-          <button
-            className="btn btn-primary"
-            onClick={handleNext}
-          >
-            Next →
-          </button>
-
-        </div>
+        <select
+          className="form-select"
+          value={formData.loanType}
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              loanType: e.target.value,
+            })
+          }
+        >
+          <option value="">Choose Loan Type</option>
+          <option value="Personal Loan">Personal Loan</option>
+          <option value="Home Loan">Home Loan</option>
+          <option value="Business Loan">Business Loan</option>
+          <option value="Education Loan">Education Loan</option>
+          <option value="Vehicle Loan">Vehicle Loan</option>
+        </select>
 
       </div>
 
-    </div>
+      <NavigationButton
+        isFirst={true}
+        nextStep={handleNext}
+      />
 
+    </Layout>
   );
-
 }
 
 export default Step1LoanType;

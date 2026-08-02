@@ -1,3 +1,8 @@
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButton from "../components/NavigationButton";
+
 function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
 
   const handleChange = (e) => {
@@ -7,36 +12,43 @@ function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
     });
   };
 
+  const handleNext = () => {
+    if (!formData.pan || !formData.aadhaar) {
+      alert("Please fill all fields");
+      return;
+    }
+    nextStep();
+  };
+
   return (
-    <div className="container mt-5">
+    <Layout>
+      <Progress step={3} />
+      <StepHeader title="Step 3 : Identity Details" />
 
-      <h2>Step 3 : Identity</h2>
+      <div className="mb-3">
+        <label className="form-label fw-bold">PAN Number</label>
+        <input
+          type="text"
+          className="form-control"
+          name="pan"
+          value={formData.pan}
+          onChange={handleChange}
+        />
+      </div>
 
-      <input
-        className="form-control mt-3"
-        placeholder="PAN Number"
-        name="pan"
-        value={formData.pan || ""}
-        onChange={handleChange}
-      />
+      <div className="mb-3">
+        <label className="form-label fw-bold">Aadhaar Number</label>
+        <input
+          type="text"
+          className="form-control"
+          name="aadhaar"
+          value={formData.aadhaar}
+          onChange={handleChange}
+        />
+      </div>
 
-      <input
-        className="form-control mt-3"
-        placeholder="Aadhaar Number"
-        name="aadhaar"
-        value={formData.aadhaar || ""}
-        onChange={handleChange}
-      />
-
-      <button className="btn btn-secondary mt-4 me-2" onClick={prevStep}>
-        Previous
-      </button>
-
-      <button className="btn btn-primary mt-4" onClick={nextStep}>
-        Next
-      </button>
-
-    </div>
+      <NavigationButton prevStep={prevStep} nextStep={handleNext} />
+    </Layout>
   );
 }
 

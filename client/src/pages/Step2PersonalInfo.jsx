@@ -1,6 +1,15 @@
-import { useState } from "react";
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButton from "../components/NavigationButton";
 
-function Step2PersonalInfo({ nextStep, prevStep, formData, setFormData }) {
+function Step2PersonalInfo({
+  nextStep,
+  prevStep,
+  formData,
+  setFormData,
+}) {
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -8,14 +17,14 @@ function Step2PersonalInfo({ nextStep, prevStep, formData, setFormData }) {
     });
   };
 
-  const next = () => {
+  const handleNext = () => {
     if (
-      !formData.fullName ||
-      !formData.email ||
-      !formData.mobile ||
-      !formData.dob
+      formData.fullName === "" ||
+      formData.email === "" ||
+      formData.mobile === "" ||
+      formData.dob === ""
     ) {
-      alert("Fill all fields");
+      alert("Please fill all fields");
       return;
     }
 
@@ -23,54 +32,76 @@ function Step2PersonalInfo({ nextStep, prevStep, formData, setFormData }) {
   };
 
   return (
-    <div className="container mt-5">
+    <Layout>
 
-      <h2>Step 2 : Personal Information</h2>
+      <Progress step={2} />
 
-      <input
-        className="form-control mt-3"
-        type="text"
-        name="fullName"
-        placeholder="Full Name"
-        value={formData.fullName || ""}
-        onChange={handleChange}
+      <StepHeader title="Step 2 : Personal Information" />
+
+      <div className="mb-3">
+        <label className="form-label fw-bold">
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          className="form-control"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label fw-bold">
+          Email
+        </label>
+
+        <input
+          type="email"
+          className="form-control"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label fw-bold">
+          Mobile Number
+        </label>
+
+        <input
+          type="text"
+          className="form-control"
+          name="mobile"
+          value={formData.mobile}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label fw-bold">
+          Date of Birth
+        </label>
+
+        <input
+          type="date"
+          className="form-control"
+          name="dob"
+          value={formData.dob}
+          onChange={handleChange}
+        />
+      </div>
+
+      <NavigationButton
+        isFirst={false}
+        isLast={false}
+        prevStep={prevStep}
+        nextStep={handleNext}
       />
 
-      <input
-        className="form-control mt-3"
-        type="email"
-        name="email"
-        placeholder="Email"
-        value={formData.email || ""}
-        onChange={handleChange}
-      />
-
-      <input
-        className="form-control mt-3"
-        type="text"
-        name="mobile"
-        placeholder="Mobile Number"
-        value={formData.mobile || ""}
-        onChange={handleChange}
-      />
-
-      <input
-        className="form-control mt-3"
-        type="date"
-        name="dob"
-        value={formData.dob || ""}
-        onChange={handleChange}
-      />
-
-      <button className="btn btn-secondary mt-4 me-2" onClick={prevStep}>
-        Previous
-      </button>
-
-      <button className="btn btn-primary mt-4" onClick={next}>
-        Next
-      </button>
-
-    </div>
+    </Layout>
   );
 }
 
