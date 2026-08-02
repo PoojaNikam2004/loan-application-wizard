@@ -1,17 +1,27 @@
+import Layout from "../components/Layout";
+
 function Step9Submit() {
 
   return (
-    <div className="container mt-5 text-center">
+    <Layout>
 
-      <h1 className="text-success">
-        🎉 Loan Application Submitted Successfully
-      </h1>
+      <div className="text-center py-5">
 
-      <p className="mt-3">
-        Thank You for Applying.
-      </p>
+        <h1 className="text-success">
+          🎉 Application Submitted Successfully
+        </h1>
 
-    </div>
+        <p className="mt-3 fs-5">
+          Thank you for applying.
+        </p>
+
+        <button className="btn btn-success mt-4">
+          Back to Home
+        </button>
+
+      </div>
+
+    </Layout>
   );
 }
 
