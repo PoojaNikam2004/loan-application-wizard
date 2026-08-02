@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 
 function Step9Submit() {
 
+
+
   return (
     <Layout>
 
@@ -15,7 +17,7 @@ function Step9Submit() {
           Thank you for applying.
         </p>
 
-        <button className="btn btn-success mt-4">
+        <button className="btn btn-success mt-4" onClick={() => window.location.href = "/"}>
           Back to Home
         </button>
 

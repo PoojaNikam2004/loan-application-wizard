@@ -1,3 +1,5 @@
+import "../Styles/Layout.css";
+
 function Layout({ children }) {
   return (
     <div

@@ -1,0 +1,20 @@
+.form-label{
+
+    font-weight:600;
+
+    color:#374151;
+}
+
+.form-control{
+
+    height:50px;
+
+    border-radius:10px;
+}
+
+.form-select{
+
+    height:50px;
+
+    border-radius:10px;
+}

@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
-import NavigationButtons from "../components/NavigationButton";
+import NavigationButton from "../components/NavigationButton";
 
 function Step7Documents({ nextStep, prevStep }) {
 

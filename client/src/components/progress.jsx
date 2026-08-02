@@ -1,3 +1,5 @@
+import "../Styles/Progress.css";
+
 function ProgressBar({ step }) {
 
   const percentage = (step / 9) * 100;

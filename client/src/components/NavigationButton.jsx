@@ -1,3 +1,6 @@
+import "../Styles/Button.css";
+
+
 function NavigationButtons({
   nextStep,
   prevStep,

@@ -1,0 +1,30 @@
+body{
+    background:#f4f7fc;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.main-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+}
+
+.loan-card{
+
+    width:900px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.12);
+
+    padding:45px;
+}
