@@ -1,21 +1,32 @@
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButtons from "../components/NavigationButton";
+
 function Step7Documents({ nextStep, prevStep }) {
 
   return (
-    <div className="container mt-5">
+    <Layout>
+      <Progress step={7} />
+      <StepHeader title="Step 7 : Upload Documents" />
 
-      <h2>Step 7 : Upload Documents</h2>
+      <div className="mb-3">
+        <label className="form-label fw-bold">Upload Aadhaar Card</label>
+        <input className="form-control" type="file" />
+      </div>
 
-      <input className="form-control mt-3" type="file" />
+      <div className="mb-3">
+        <label className="form-label fw-bold">Upload PAN Card</label>
+        <input className="form-control" type="file" />
+      </div>
 
-      <button className="btn btn-secondary mt-4 me-2" onClick={prevStep}>
-        Previous
-      </button>
+      <div className="mb-3">
+        <label className="form-label fw-bold">Upload Salary Slip</label>
+        <input className="form-control" type="file" />
+      </div>
 
-      <button className="btn btn-primary mt-4" onClick={nextStep}>
-        Next
-      </button>
-
-    </div>
+      <NavigationButton prevStep={prevStep} nextStep={nextStep} />
+    </Layout>
   );
 }
 

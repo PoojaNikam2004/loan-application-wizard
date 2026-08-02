@@ -1,3 +1,8 @@
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButton from "../components/NavigationButton";
+
 function Step6Additional({ nextStep, prevStep, formData, setFormData }) {
 
   const handleChange = (e) => {
@@ -8,28 +13,42 @@ function Step6Additional({ nextStep, prevStep, formData, setFormData }) {
   };
 
   return (
-    <div className="container mt-5">
+    <Layout>
+      <Progress step={6} />
+      <StepHeader title="Step 6 : Loan Details" />
 
-      <h2>Step 6 : Additional Details</h2>
+      <input
+        className="form-control mb-3"
+        placeholder="Loan Amount"
+        name="loanAmount"
+        value={formData.loanAmount}
+        onChange={handleChange}
+      />
+
+      <select
+        className="form-select mb-3"
+        name="loanTenure"
+        value={formData.loanTenure}
+        onChange={handleChange}
+      >
+        <option value="">Select Loan Tenure</option>
+        <option>12 Months</option>
+        <option>24 Months</option>
+        <option>36 Months</option>
+        <option>60 Months</option>
+      </select>
 
       <textarea
         className="form-control"
         rows="4"
-        name="remarks"
-        placeholder="Additional Details"
-        value={formData.remarks || ""}
+        placeholder="Purpose of Loan"
+        name="purpose"
+        value={formData.purpose}
         onChange={handleChange}
       />
 
-      <button className="btn btn-secondary mt-4 me-2" onClick={prevStep}>
-        Previous
-      </button>
-
-      <button className="btn btn-primary mt-4" onClick={nextStep}>
-        Next
-      </button>
-
-    </div>
+      <NavigationButton prevStep={prevStep} nextStep={nextStep} />
+    </Layout>
   );
 }
 
