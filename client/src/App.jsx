@@ -1,14 +1,16 @@
-import { useState } from 'react'
 
+import Step1LoanType from './pages/Step1LoanType';
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
 
     <div>
-      welcome to the loan application wizard
+      <Step1LoanType />
     </div>
+
+    
     
   )   
   
