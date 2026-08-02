@@ -1,20 +1,18 @@
-import { useState } from "react";
 
-function Step1LoanType() {
+function Step1LoanType({ nextStep, formData, setFormData }) {
 
-  const [loanType, setLoanType] = useState("");
+ 
 
   const handleNext = () => {
 
-    if (!loanType) {
-      alert("Please Select Loan Type");
-      return;
-    }
-    alert("Loan Type Selected: " + loanType);
+  if (formData.loanType === "") {
+    alert("Please Select Loan Type");
+    return;
+  }
 
-    console.log(loanType);
+  nextStep();
 
-  };
+};
 
   return (
 
@@ -33,28 +31,20 @@ function Step1LoanType() {
           </h5>
 
           <select
-            className="form-select mb-4"
-            value={loanType}
-            onChange={(e)=>setLoanType(e.target.value)}
-          >
-
-            <option value="">
-              Choose Loan Type
-            </option>
-
-            <option value="Personal">
-              Personal Loan
-            </option>
-
-            <option value="Home">
-              Home Loan
-            </option>
-
-            <option value="Business">
-              Business Loan
-            </option>
-
-          </select>
+  className="form-select mb-4"
+  value={formData.loanType}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      loanType: e.target.value,
+    })
+  }
+>
+  <option value="">Choose Loan Type</option>
+  <option value="Personal">Personal Loan</option>
+  <option value="Home">Home Loan</option>
+  <option value="Business">Business Loan</option>
+</select>
 
           <button
             className="btn btn-primary"
