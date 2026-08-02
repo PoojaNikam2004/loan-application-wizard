@@ -1,3 +1,8 @@
+import Layout from "../components/Layout";
+import Progress from "../components/Progress";
+import StepHeader from "../components/StepHeader";
+import NavigationButton from "../components/NavigationButton";
+
 function Step5Employment({ nextStep, prevStep, formData, setFormData }) {
 
   const handleChange = (e) => {
@@ -8,35 +13,36 @@ function Step5Employment({ nextStep, prevStep, formData, setFormData }) {
   };
 
   return (
-    <div className="container mt-5">
-
-      <h2>Step 5 : Employment</h2>
+    <Layout>
+      <Progress step={5} />
+      <StepHeader title="Step 5 : Employment Details" />
 
       <input
-        className="form-control mt-3"
+        className="form-control mb-3"
+        placeholder="Employment Type"
+        name="employmentType"
+        value={formData.employmentType}
+        onChange={handleChange}
+      />
+
+      <input
+        className="form-control mb-3"
         placeholder="Company Name"
         name="company"
-        value={formData.company || ""}
+        value={formData.company}
         onChange={handleChange}
       />
 
       <input
-        className="form-control mt-3"
+        className="form-control mb-3"
         placeholder="Monthly Income"
         name="salary"
-        value={formData.salary || ""}
+        value={formData.salary}
         onChange={handleChange}
       />
 
-      <button className="btn btn-secondary mt-4 me-2" onClick={prevStep}>
-        Previous
-      </button>
-
-      <button className="btn btn-primary mt-4" onClick={nextStep}>
-        Next
-      </button>
-
-    </div>
+      <NavigationButton prevStep={prevStep} nextStep={nextStep} />
+    </Layout>
   );
 }
 
