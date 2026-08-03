@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
+
 
 function Step6Additional({ nextStep, prevStep, formData, setFormData }) {
 
@@ -15,6 +17,7 @@ function Step6Additional({ nextStep, prevStep, formData, setFormData }) {
   return (
     <Layout>
       <Progress step={6} />
+      <Stepper step={6}/>
       <StepHeader title="Step 6 : Loan Details" />
 
       <input
