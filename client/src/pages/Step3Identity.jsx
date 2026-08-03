@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
+
 
 function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
 
@@ -23,6 +25,7 @@ function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
   return (
     <Layout>
       <Progress step={3} />
+      <Stepper step={3}/>
       <StepHeader title="Step 3 : Identity Details" />
 
       <div className="mb-3">
