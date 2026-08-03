@@ -17,6 +17,10 @@ function App() {
 
   const [formData, setFormData] = useState({
   loanType: "",
+  address: "",
+city: "",
+state: "",
+pincode: "",
   
 });
 
