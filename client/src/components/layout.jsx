@@ -1,12 +1,10 @@
 
- import "../Styles/Form.css";
+import "../Styles/Form.css";
 import "../Styles/Button.css";
- import "../Styles/Progress.css";
- 
-
+import "../Styles/Progress.css";
 import "../styles/layout.css";
 
-import loanImage from "../assets/loan.png";
+import loanImage from "../assets/loan.jpg";
 
 
 
@@ -16,10 +14,10 @@ function Layout({ children }) {
 
       <div className="loan-card">
 
-        <div className="row g-0">
+        <div className="row g-0 h-100">
 
           {/* Left Side */}
-          <div className="col-lg-5 left-panel">
+          <div className="col-lg-4 left-panel">
 
             <img
               src={loanImage}
@@ -28,11 +26,11 @@ function Layout({ children }) {
             />
 
 
-            <h1 className="fw-bold text-white">
+            <h1 className="fw-bold ">
               LoanFlow
             </h1>
 
-            <p className="text-white">
+            <p className="text-muted">
               Fast • Secure • Smart
             </p>
 
@@ -41,20 +39,27 @@ function Layout({ children }) {
             </p>
 
             <div className="mt-4 text-start">
-
               <i className="bi bi-shield-check"></i> Secure Application
-
+            </div>
+            <div>
               <i className="bi bi-lightning-charge"></i> Instant Processing
+            </div>
 
+            <div>
               <i className="bi bi-lock"></i> Data Privacy
 
+            </div>
+
+            <div>
               <i className="bi bi-people"></i> 10,000+ Customers
             </div>
+
+
 
           </div>
 
           {/* Right Side */}
-          <div className="col-lg-7 p-5">
+          <div className="col-lg-8 p-5 px-5">
 
 
             {children}

@@ -1,3 +1,15 @@
+.form-title{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.form-subtitle{
+    color:#6c757d;
+    margin-bottom:35px;
+}
+
+
 .form-label{
 
     font-weight:600;
