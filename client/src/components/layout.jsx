@@ -1,36 +1,70 @@
-import "../Styles/Layout.css";
-import "../Styles/Form.css";
+
+ import "../Styles/Form.css";
 import "../Styles/Button.css";
-import "../Styles/Progress.css";
-import "../Styles/Stepper.css';"
+ import "../Styles/Progress.css";
+ 
+
+import "../styles/layout.css";
+
+import loanImage from "../assets/loan.png";
+
+
 
 function Layout({ children }) {
   return (
-    <div
-      className="container-fluid py-5"
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg,#4f46e5,#7c3aed)",
-      }}
-    >
-      <div className="row justify-content-center">
-        <div className="col-lg-8">
+    <div className="main-container">
 
-          <div
-            className="card shadow-lg border-0"
-            style={{ borderRadius: "20px" }}
-          >
+      <div className="loan-card">
 
-            <div className="card-body p-5">
+        <div className="row g-0">
 
-              {children}
+          {/* Left Side */}
+          <div className="col-lg-5 left-panel">
 
+            <img
+              src={loanImage}
+              alt="Loan"
+              className="img-fluid mb-4"
+            />
+
+
+            <h1 className="fw-bold text-white">
+              LoanFlow
+            </h1>
+
+            <p className="text-white">
+              Fast • Secure • Smart
+            </p>
+
+            <p>
+              Apply for your loan in a few simple steps.
+            </p>
+
+            <div className="mt-4 text-start">
+
+              <i className="bi bi-shield-check"></i> Secure Application
+
+              <i className="bi bi-lightning-charge"></i> Instant Processing
+
+              <i className="bi bi-lock"></i> Data Privacy
+
+              <i className="bi bi-people"></i> 10,000+ Customers
             </div>
 
           </div>
 
+          {/* Right Side */}
+          <div className="col-lg-7 p-5">
+
+
+            {children}
+
+          </div>
+
         </div>
+
       </div>
+
     </div>
   );
 }
