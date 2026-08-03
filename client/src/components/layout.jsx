@@ -1,50 +1,55 @@
 import "../styles/layout.css";
 import loan from "../assets/loan.jpg";
-
+import personal from "../assets/personal.png";
 import home from "../assets/home.png";
 import business from "../assets/business.jpg";
 import vehical from "../assets/vehical.jpg";
 import education from "../assets/education.jpg";
- 
-function Layout({ children, formData}){
 
-switch (formData?.loanType) {
+function Layout({ children, formData }) {
 
-  case "Home Loan":
-    image = home;
-    heading = "Home Loan";
-    theme = "#2563eb";
-    break;
+  let image = loan;
+  let heading = "Welcome to LoanFlow";
+  let theme = "#5479c9";
 
-  case "Business Loan":
-    image = business;
-    heading = "Business Loan";
-    theme = "#16a34a";
-    break;
 
-  case "Education Loan":
-    image = education;
-    heading = "Education Loan";
-    theme = "#d97706";
-    break;
+  switch (formData?.loanType) {
 
-  case "Vehicle Loan":
-    image = vehical;
-    heading = "Vehicle Loan";
-    theme = "#6b7280";
-    break;
+    case "Home Loan":
+      image = home;
+      heading = "Home Loan";
+      theme = "#80c7d5";
+      break;
 
-  case "Personal Loan":
-    image = personal;
-    heading = "Personal Loan";
-    theme = "#6f42c1";
-    break;
+    case "Business Loan":
+      image = business;
+      heading = "Business Loan";
+      theme = "#9da1d3";
+      break;
 
-  default:
-    image = loan;
-    heading = "Welcome to LoanFlow";
-    theme = "#2563eb";
-}
+    case "Education Loan":
+      image = education;
+      heading = "Education Loan";
+      theme = "#6b7280";
+      break;
+
+    case "Vehicle Loan":
+      image = vehical;
+      heading = "Vehicle Loan";
+       theme = "#daa86f";
+      break;
+
+    case "Personal Loan":
+      image = personal;
+      heading = "Personal Loan";
+      theme = "#836ab1";
+      break;
+
+    default:
+      image = loan;
+      heading = "Welcome to LoanFlow";
+      theme = "#799be3";
+  }
 
   return (
 
@@ -104,12 +109,12 @@ switch (formData?.loanType) {
 
           {/* RIGHT PANEL */}
 
-          <div className="col-lg-8 p-5">
-
+          <div
+            className="col-lg-8 right-panel"
+            style={{ backgroundColor: "#ffffff" }}
+          >
             {children}
-
           </div>
-
         </div>
 
       </div>

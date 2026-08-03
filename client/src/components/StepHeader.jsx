@@ -1,28 +1,19 @@
-function StepHeader({ title }) {
-
+function StepHeader({ title, subtitle }) {
   return (
-
     <div className="mb-4">
 
-      <h2 className="fw-bold text-primary">
-
-        Loan Application Wizard
-
+      <h2 className="fw-bold text-primary mb-2">
+        {title}
       </h2>
 
-
       <p className="text-muted">
-
-        {title}
-
+        {subtitle}
       </p>
 
       <hr />
 
     </div>
-
   );
-
 }
 
 export default StepHeader;
