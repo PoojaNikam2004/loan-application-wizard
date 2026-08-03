@@ -1,9 +1,8 @@
 import Layout from "../components/Layout";
 import Progress from "../components/Progress";
+import Stepper from "../components/Stepper";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
-import Stepper from "../components/Stepper";
-
 
 function Step2PersonalInfo({
   nextStep,
@@ -12,21 +11,15 @@ function Step2PersonalInfo({
   setFormData,
 }) {
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleNext = () => {
+
     if (
-      formData.fullName === "" ||
-      formData.email === "" ||
-      formData.mobile === "" ||
-      formData.dob === ""
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.mobile
     ) {
-      alert("Please fill all fields");
+      alert("Please fill all required fields.");
       return;
     }
 
@@ -34,73 +27,115 @@ function Step2PersonalInfo({
   };
 
   return (
-    <Layout>
+    <Layout formData={formData}>
 
       <Progress step={2} />
-      <Stepper step={2}/>
-      
+      <Stepper step={2} />
 
-      <StepHeader title="Step 2 : Personal Information" />
+      <StepHeader
+        title="Personal Information"
+        subtitle="Enter your personal details."
+      />
 
-      <div className="mb-3">
-        <label className="form-label fw-bold">
-          Full Name
-        </label>
+      <div className="row">
 
-        <input
-          type="text"
-          className="form-control"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">First Name</label>
+          <input
+            type="text"
+            className="form-control"
+            value={formData.firstName || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                firstName:e.target.value
+              })
+            }
+          />
+        </div>
 
-      <div className="mb-3">
-        <label className="form-label fw-bold">
-          Email
-        </label>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">Last Name</label>
+          <input
+            type="text"
+            className="form-control"
+            value={formData.lastName || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                lastName:e.target.value
+              })
+            }
+          />
+        </div>
 
-        <input
-          type="email"
-          className="form-control"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">Email</label>
+          <input
+            type="email"
+            className="form-control"
+            value={formData.email || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                email:e.target.value
+              })
+            }
+          />
+        </div>
 
-      <div className="mb-3">
-        <label className="form-label fw-bold">
-          Mobile Number
-        </label>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">Mobile Number</label>
+          <input
+            type="tel"
+            className="form-control"
+            value={formData.mobile || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                mobile:e.target.value
+              })
+            }
+          />
+        </div>
 
-        <input
-          type="text"
-          className="form-control"
-          name="mobile"
-          value={formData.mobile}
-          onChange={handleChange}
-        />
-      </div>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">Date of Birth</label>
+          <input
+            type="date"
+            className="form-control"
+            value={formData.dob || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                dob:e.target.value
+              })
+            }
+          />
+        </div>
 
-      <div className="mb-3">
-        <label className="form-label fw-bold">
-          Date of Birth
-        </label>
+        <div className="col-md-6 mb-3">
+          <label className="form-label">Gender</label>
+          <select
+            className="form-select"
+            value={formData.gender || ""}
+            onChange={(e)=>
+              setFormData({
+                ...formData,
+                gender:e.target.value
+              })
+            }
+          >
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
 
-        <input
-          type="date"
-          className="form-control"
-          name="dob"
-          value={formData.dob}
-          onChange={handleChange}
-        />
       </div>
 
       <NavigationButton
-        isFirst={false}
-        isLast={false}
         prevStep={prevStep}
         nextStep={handleNext}
       />

@@ -1,21 +1,13 @@
 import Layout from "../components/Layout";
 import Progress from "../components/Progress";
+import Stepper from "../components/Stepper";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
-import Stepper from "../components/Stepper";
-
 
 function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const handleNext = () => {
-    if (!formData.pan || !formData.aadhaar) {
+    if (!formData.aadhaar || !formData.pan) {
       alert("Please fill all fields");
       return;
     }
@@ -23,34 +15,45 @@ function Step3Identity({ nextStep, prevStep, formData, setFormData }) {
   };
 
   return (
-    <Layout>
-      <Progress step={3} />
+    <Layout formData={formData}>
+
+      <Progress step={3}/>
       <Stepper step={3}/>
-      <StepHeader title="Step 3 : Identity Details" />
+
+      <StepHeader
+        title="Identity Verification"
+        subtitle="Enter your identity details."
+      />
 
       <div className="mb-3">
-        <label className="form-label fw-bold">PAN Number</label>
+        <label className="form-label">Aadhaar Number</label>
         <input
           type="text"
           className="form-control"
-          name="pan"
-          value={formData.pan}
-          onChange={handleChange}
+          value={formData.aadhaar || ""}
+          onChange={(e)=>
+            setFormData({...formData,aadhaar:e.target.value})
+          }
         />
       </div>
 
-      <div className="mb-3">
-        <label className="form-label fw-bold">Aadhaar Number</label>
+      <div className="mb-4">
+        <label className="form-label">PAN Number</label>
         <input
           type="text"
           className="form-control"
-          name="aadhaar"
-          value={formData.aadhaar}
-          onChange={handleChange}
+          value={formData.pan || ""}
+          onChange={(e)=>
+            setFormData({...formData,pan:e.target.value})
+          }
         />
       </div>
 
-      <NavigationButton prevStep={prevStep} nextStep={handleNext} />
+      <NavigationButton
+        prevStep={prevStep}
+        nextStep={handleNext}
+      />
+
     </Layout>
   );
 }

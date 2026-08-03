@@ -1,5 +1,5 @@
 .main-container{
-    min-height:200vh;
+    min-height:100vh;
     background:#edf2fb;
 
     display:flex;
@@ -15,10 +15,6 @@
     min-height:850px;      
     border-radius:25px;
     overflow:hidden;
-     background: #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 15px 40px rgba(0,0,0,.15);
 
     box-shadow:0 15px 45px rgba(0,0,0,.12);
 }
@@ -39,7 +35,6 @@
     width:500px;
     max-width:100%;
     margin-bottom:40px;
-    height:400px;
 }
 
 .left-panel h3{
@@ -67,16 +62,4 @@
     flex-direction:column;
 
     justify-content:flex-start;
-}
-.card{
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 30px rgba(0,0,0,.15)!important;
-}
-
-.border-primary{
-    border:2px solid #0d6efd!important;
 }
