@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import Stepper from "../components/Stepper";
 
 function Step9Submit() {
 
@@ -6,6 +7,8 @@ function Step9Submit() {
 
   return (
     <Layout>
+
+      <Stepper step={9} />
 
       <div className="text-center py-5">
 
