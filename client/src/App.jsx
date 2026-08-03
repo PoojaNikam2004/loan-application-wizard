@@ -21,6 +21,9 @@ function App() {
 city: "",
 state: "",
 pincode: "",
+employmentType: "",
+companyName: "",
+monthlyIncome: "",
   
 });
 
