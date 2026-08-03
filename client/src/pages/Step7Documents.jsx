@@ -2,12 +2,14 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
 
 function Step7Documents({ nextStep, prevStep }) {
 
   return (
     <Layout>
       <Progress step={7} />
+      <Stepper step={7}/>
       <StepHeader title="Step 7 : Upload Documents" />
 
       <div className="mb-3">
