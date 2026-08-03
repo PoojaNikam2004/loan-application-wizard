@@ -1,4 +1,7 @@
 import "../Styles/Layout.css";
+import "../Styles/Form.css";
+import "../Styles/Button.css";
+import "../Styles/Progress.css";
 
 function Layout({ children }) {
   return (
