@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
+
 
 function Step2PersonalInfo({
   nextStep,
@@ -35,6 +37,8 @@ function Step2PersonalInfo({
     <Layout>
 
       <Progress step={2} />
+      <Stepper step={2}/>
+      
 
       <StepHeader title="Step 2 : Personal Information" />
 
