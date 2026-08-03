@@ -24,6 +24,9 @@ pincode: "",
 employmentType: "",
 companyName: "",
 monthlyIncome: "",
+loanAmount: "",
+loanTenure: "",
+loanPurpose: "",
   
 });
 
