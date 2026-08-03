@@ -2,6 +2,7 @@ import "../Styles/Layout.css";
 import "../Styles/Form.css";
 import "../Styles/Button.css";
 import "../Styles/Progress.css";
+import "../Styles/Stepper.css';"
 
 function Layout({ children }) {
   return (

@@ -1,0 +1,44 @@
+.step-circle{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:#d1d5db;
+
+    color:#374151;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.active-step{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.step-text{
+
+    margin-top:8px;
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
