@@ -16,7 +16,7 @@ function Step1LoanType({ nextStep, formData, setFormData }) {
   };
 
   return (
-    <Layout>
+   <Layout formData={formData}>
 
       <Progress step={1} />
       <Stepper step={1}/>
@@ -45,6 +45,7 @@ function Step1LoanType({ nextStep, formData, setFormData }) {
           <option value="Business Loan">Business Loan</option>
           <option value="Education Loan">Education Loan</option>
           <option value="Vehicle Loan">Vehicle Loan</option>
+        
         </select>
 
       </div>

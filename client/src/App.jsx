@@ -16,20 +16,11 @@ function App() {
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
-    loanType: "",
-    fullName: "",
-    email: "",
-    mobile: "",
-    dob: "",
-    pan: "",
-    aadhaar: "",
-    address: "",
-    company: "",
-    salary: "",
-    remarks: ""
-  });
+  loanType: "",
+  
+});
 
-  const nextStep = () => {
+const nextStep = () => {
     setStep(step + 1);
   };
 
