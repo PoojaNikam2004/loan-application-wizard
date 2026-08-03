@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Progress from "../components/Progress";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
+
 
 function Step4Address({ nextStep, prevStep, formData, setFormData }) {
 
@@ -15,6 +17,7 @@ function Step4Address({ nextStep, prevStep, formData, setFormData }) {
   return (
     <Layout>
       <Progress step={4} />
+      <Stepper step={4}/>
       <StepHeader title="Step 4 : Address Details" />
 
       <input
