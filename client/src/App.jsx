@@ -17,16 +17,20 @@ function App() {
 
   const [formData, setFormData] = useState({
   loanType: "",
+
   address: "",
 city: "",
 state: "",
 pincode: "",
+
 employmentType: "",
 companyName: "",
+
 monthlyIncome: "",
 loanAmount: "",
 loanTenure: "",
 loanPurpose: "",
+
 aadhaarFile :"",
 panFile:"",
 salarySlip:"",
@@ -109,6 +113,8 @@ const nextStep = () => {
         <Step7Documents
           nextStep={nextStep}
           prevStep={prevStep}
+          formData={formData}
+          setFormData={setFormData}
         />
       );
 

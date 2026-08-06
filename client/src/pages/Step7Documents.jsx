@@ -27,21 +27,24 @@ function Step7Documents({
         body: data,
       });
 
-      console.log("Status:", response.status);
-
       const result = await response.json();
 
-      console.log("Result:", result);
+      if (result.success) {
 
-      setFormData({
-        ...formData,
-        [field]: result.path,
-      });
+        setFormData({
+          ...formData,
+          [field]: result.path,
+        });
+
+      } else {
+
+        alert("Upload Failed");
+
+      }
 
     } catch (err) {
 
       console.log(err);
-
       alert("Upload Failed");
 
     }
@@ -59,7 +62,6 @@ function Step7Documents({
     ) {
 
       alert("Please upload all documents");
-
       return;
 
     }
@@ -81,7 +83,6 @@ function Step7Documents({
       />
 
       <div className="mb-3">
-
         <label className="form-label fw-bold">
           Aadhaar Card
         </label>
@@ -91,11 +92,9 @@ function Step7Documents({
           className="form-control"
           onChange={(e) => uploadFile(e, "aadhaarFile")}
         />
-
       </div>
 
       <div className="mb-3">
-
         <label className="form-label fw-bold">
           PAN Card
         </label>
@@ -105,11 +104,9 @@ function Step7Documents({
           className="form-control"
           onChange={(e) => uploadFile(e, "panFile")}
         />
-
       </div>
 
       <div className="mb-3">
-
         <label className="form-label fw-bold">
           Salary Slip
         </label>
@@ -119,11 +116,9 @@ function Step7Documents({
           className="form-control"
           onChange={(e) => uploadFile(e, "salarySlip")}
         />
-
       </div>
 
       <div className="mb-3">
-
         <label className="form-label fw-bold">
           Bank Statement
         </label>
@@ -133,11 +128,9 @@ function Step7Documents({
           className="form-control"
           onChange={(e) => uploadFile(e, "bankStatement")}
         />
-
       </div>
 
       <div className="mb-4">
-
         <label className="form-label fw-bold">
           Passport Size Photo
         </label>
@@ -148,7 +141,6 @@ function Step7Documents({
           className="form-control"
           onChange={(e) => uploadFile(e, "photo")}
         />
-
       </div>
 
       <NavigationButton
