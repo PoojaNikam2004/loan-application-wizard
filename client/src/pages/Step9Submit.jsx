@@ -1,33 +1,69 @@
 import Layout from "../components/Layout";
-import Stepper from "../components/Stepper";
+import { useEffect, useState } from "react";
 
-function Step9Submit() {
+function Step9Submit({ formData }) {
 
+  const [applicationId] = useState(
+    "LN" + Date.now().toString().slice(-8)
+  );
 
+  useEffect(() => {
+
+    // Backend API call 
+
+  }, []);
 
   return (
-    <Layout>
 
-      <Stepper step={9} />
+    <Layout formData={formData}>
 
-      <div className="text-center py-5">
+      <div className="text-center mt-5">
 
-        <h1 className="text-success">
-          🎉 Application Submitted Successfully
-        </h1>
+        <i
+          className="bi bi-check-circle-fill text-success"
+          style={{ fontSize: "80px" }}
+        ></i>
 
-        <p className="mt-3 fs-5">
+        <h2 className="mt-4 fw-bold">
+
+          Application Submitted Successfully
+
+        </h2>
+
+        <p className="text-muted">
+
           Thank you for applying.
+
         </p>
 
-        <button className="btn btn-success mt-4" onClick={() => window.location.href = "/"}>
-          Back to Home
+        <div className="card shadow p-4 mt-4">
+
+          <h5>
+
+            Application ID
+
+          </h5>
+
+          <h3 className="text-primary">
+
+            {applicationId}
+
+          </h3>
+
+        </div>
+
+        <button
+          className="btn btn-success mt-4"
+        >
+          Download Receipt
         </button>
 
       </div>
 
     </Layout>
+
   );
+
 }
 
 export default Step9Submit;
