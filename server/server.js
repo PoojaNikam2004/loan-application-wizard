@@ -3,9 +3,11 @@ dotenv.config();
 
 import app from "./app.js";
 import db from "./config/db.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 const PORT = process.env.PORT || 5000;
 
+app.use("/api/upload", uploadRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(process.env.DB_USER);
@@ -16,3 +18,6 @@ app.listen(PORT, () => {
   database: process.env.DB_NAME,
 });
 });
+
+
+

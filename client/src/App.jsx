@@ -27,11 +27,11 @@ monthlyIncome: "",
 loanAmount: "",
 loanTenure: "",
 loanPurpose: "",
-aadhaarFile: null,
-panFile: null,
-salarySlip: null,
-bankStatement: null,
-photo: null,
+aadhaarFile :"",
+panFile:"",
+salarySlip:"",
+bankStatement:"",
+photo:"",
   
 });
 

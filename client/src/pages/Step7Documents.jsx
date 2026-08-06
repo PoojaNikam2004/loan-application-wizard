@@ -1,8 +1,8 @@
 import Layout from "../components/Layout";
 import Progress from "../components/Progress";
-import Stepper from "../components/Stepper";
 import StepHeader from "../components/StepHeader";
 import NavigationButton from "../components/NavigationButton";
+import Stepper from "../components/Stepper";
 
 function Step7Documents({
   nextStep,
@@ -10,6 +10,43 @@ function Step7Documents({
   formData,
   setFormData,
 }) {
+
+  const uploadFile = async (e, field) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const data = new FormData();
+    data.append("document", file);
+
+    try {
+
+      const response = await fetch("http://localhost:5000/api/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      console.log("Status:", response.status);
+
+      const result = await response.json();
+
+      console.log("Result:", result);
+
+      setFormData({
+        ...formData,
+        [field]: result.path,
+      });
+
+    } catch (err) {
+
+      console.log(err);
+
+      alert("Upload Failed");
+
+    }
+
+  };
 
   const handleNext = () => {
 
@@ -20,11 +57,15 @@ function Step7Documents({
       !formData.bankStatement ||
       !formData.photo
     ) {
-      alert("Please upload all required documents.");
+
+      alert("Please upload all documents");
+
       return;
+
     }
 
     nextStep();
+
   };
 
   return (
@@ -36,78 +77,78 @@ function Step7Documents({
 
       <StepHeader
         title="Document Upload"
-        subtitle="Upload the required documents."
+        subtitle="Upload all required documents."
       />
 
       <div className="mb-3">
-        <label className="form-label fw-bold">Aadhaar Card</label>
+
+        <label className="form-label fw-bold">
+          Aadhaar Card
+        </label>
+
         <input
           type="file"
           className="form-control"
-          onChange={(e)=>
-            setFormData({
-              ...formData,
-              aadhaarFile:e.target.files[0]
-            })
-          }
+          onChange={(e) => uploadFile(e, "aadhaarFile")}
         />
+
       </div>
 
       <div className="mb-3">
-        <label className="form-label fw-bold">PAN Card</label>
+
+        <label className="form-label fw-bold">
+          PAN Card
+        </label>
+
         <input
           type="file"
           className="form-control"
-          onChange={(e)=>
-            setFormData({
-              ...formData,
-              panFile:e.target.files[0]
-            })
-          }
+          onChange={(e) => uploadFile(e, "panFile")}
         />
+
       </div>
 
       <div className="mb-3">
-        <label className="form-label fw-bold">Salary Slip</label>
+
+        <label className="form-label fw-bold">
+          Salary Slip
+        </label>
+
         <input
           type="file"
           className="form-control"
-          onChange={(e)=>
-            setFormData({
-              ...formData,
-              salarySlip:e.target.files[0]
-            })
-          }
+          onChange={(e) => uploadFile(e, "salarySlip")}
         />
+
       </div>
 
       <div className="mb-3">
-        <label className="form-label fw-bold">Bank Statement</label>
+
+        <label className="form-label fw-bold">
+          Bank Statement
+        </label>
+
         <input
           type="file"
           className="form-control"
-          onChange={(e)=>
-            setFormData({
-              ...formData,
-              bankStatement:e.target.files[0]
-            })
-          }
+          onChange={(e) => uploadFile(e, "bankStatement")}
         />
+
       </div>
 
       <div className="mb-4">
-        <label className="form-label fw-bold">Passport Size Photo</label>
+
+        <label className="form-label fw-bold">
+          Passport Size Photo
+        </label>
+
         <input
           type="file"
-          className="form-control"
           accept="image/*"
-          onChange={(e)=>
-            setFormData({
-              ...formData,
-              photo:e.target.files[0]
-            })
-          }
+          className="form-control"
+          onChange={(e) => uploadFile(e, "photo")}
         />
+
       </div>
 
       <NavigationButton
@@ -118,6 +159,7 @@ function Step7Documents({
     </Layout>
 
   );
+
 }
 
 export default Step7Documents;

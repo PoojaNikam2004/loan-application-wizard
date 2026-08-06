@@ -3,22 +3,18 @@ import upload from "../middleware/upload.js";
 
 const router = express.Router();
 
-router.post(
-    "/",
-    upload.single("document"),
-    (req, res) => {
+// Test
+router.get("/", (req, res) => {
+  res.send("Upload Route Working");
+});
 
-        res.json({
-
-            success: true,
-
-            filename: req.file.filename,
-
-            path: req.file.path
-
-        });
-
-    }
-);
+// Upload
+router.post("/", upload.single("document"), (req, res) => {
+  res.json({
+    success: true,
+    filename: req.file.filename,
+    path: req.file.path,
+  });
+});
 
 export default router;
