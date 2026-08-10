@@ -1,6 +1,23 @@
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Components
+import Navbar from "./components/Navbar";
+
+// Pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+
+// Existing Loan Steps
 import Step1LoanType from "./pages/Step1LoanType";
 import Step2PersonalInfo from "./pages/Step2PersonalInfo";
 import Step3Identity from "./pages/Step3Identity";
@@ -11,45 +28,71 @@ import Step7Documents from "./pages/Step7Documents";
 import Step8Review from "./pages/Step8Review";
 import Step9Submit from "./pages/Step9Submit";
 
-function App() {
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
+
+function LoanApplication() {
 
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
-  loanType: "",
 
-  address: "",
-city: "",
-state: "",
-pincode: "",
+    loanType: "",
 
-employmentType: "",
-companyName: "",
+    // Personal Information
+    firstName: "",
+    lastName: "",
+    email: "",
+    mobile: "",
+    dob: "",
 
-monthlyIncome: "",
-loanAmount: "",
-loanTenure: "",
-loanPurpose: "",
+    // Identity
+    aadhaar: "",
+    pan: "",
 
-aadhaarFile :"",
-panFile:"",
-salarySlip:"",
-bankStatement:"",
-photo:"",
-  
-});
+    // Address
+    address: "",
+    city: "",
+    state: "",
+    pincode: "",
 
-const nextStep = () => {
-    setStep(step + 1);
+    // Employment
+    employmentType: "",
+    companyName: "",
+    monthlyIncome: "",
+
+    // Loan Details
+    loanAmount: "",
+    loanTenure: "",
+    loanPurpose: "",
+
+    // Documents
+    aadhaarFile: "",
+    panFile: "",
+    salarySlip: "",
+    bankStatement: "",
+    photo: "",
+
+  });
+
+
+  const nextStep = () => {
+    setStep((previousStep) => previousStep + 1);
   };
+
 
   const prevStep = () => {
-    setStep(step - 1);
+    setStep((previousStep) => previousStep - 1);
   };
+
 
   switch (step) {
 
     case 1:
+
       return (
         <Step1LoanType
           nextStep={nextStep}
@@ -58,7 +101,9 @@ const nextStep = () => {
         />
       );
 
+
     case 2:
+
       return (
         <Step2PersonalInfo
           nextStep={nextStep}
@@ -68,7 +113,9 @@ const nextStep = () => {
         />
       );
 
+
     case 3:
+
       return (
         <Step3Identity
           nextStep={nextStep}
@@ -78,7 +125,9 @@ const nextStep = () => {
         />
       );
 
+
     case 4:
+
       return (
         <Step4Address
           nextStep={nextStep}
@@ -88,7 +137,9 @@ const nextStep = () => {
         />
       );
 
+
     case 5:
+
       return (
         <Step5Employment
           nextStep={nextStep}
@@ -98,7 +149,9 @@ const nextStep = () => {
         />
       );
 
+
     case 6:
+
       return (
         <Step6Additional
           nextStep={nextStep}
@@ -108,7 +161,9 @@ const nextStep = () => {
         />
       );
 
+
     case 7:
+
       return (
         <Step7Documents
           nextStep={nextStep}
@@ -118,7 +173,9 @@ const nextStep = () => {
         />
       );
 
+
     case 8:
+
       return (
         <Step8Review
           nextStep={nextStep}
@@ -127,12 +184,136 @@ const nextStep = () => {
         />
       );
 
+
     case 9:
-      return <Step9Submit />;
+
+      return (
+        <Step9Submit
+          formData={formData}
+        />
+      );
+
 
     default:
+
       return <h1>Invalid Step</h1>;
+
   }
+
 }
+
+
+// Temporary pages
+//  function Login() {
+//  
+//    return (
+//      <div className="container py-5">
+//  
+//        <h2>Login</h2>
+//  
+//        <p className="text-muted">
+//          Login page will be created next.
+//        </p>
+//  
+//      </div>
+//    );
+//  
+//  }
+
+
+// function Register() {
+// 
+//   return (
+//     <div className="container py-5">
+// 
+//       <h2>Create Account</h2>
+// 
+//       <p className="text-muted">
+//         Registration page will be created next.
+//       </p>
+// 
+//     </div>
+//   );
+// 
+// }
+// 
+
+function LoanTypes() {
+
+  return (
+    <div className="container py-5">
+
+      <h2>Loan Types</h2>
+
+      <p className="text-muted">
+        Personal, Home, Business, Education and Vehicle Loans.
+      </p>
+
+    </div>
+  );
+
+}
+
+
+function App() {
+
+  return (
+
+    <BrowserRouter>
+
+      <Navbar />
+
+      <Routes>
+
+        {/* Public Pages */}
+
+        <Route
+          path="/"
+          element={<Home />}
+        />
+
+        <Route
+          path="/about"
+          element={<About />}
+        />
+
+        <Route
+          path="/loans"
+          element={<LoanTypes />}
+        />
+
+
+        {/* Authentication */}
+
+        <Route path="/login" element={<Login />}
+        />
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+
+        {/* Existing Loan Application */}
+
+        <Route
+          path="/apply-loan"
+          element={<LoanApplication />}
+        />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+
+      </Routes>
+
+    </BrowserRouter>
+
+  );
+
+}
+
 
 export default App;
