@@ -1,0 +1,67 @@
+.home-hero {
+  background: linear-gradient(135deg, #f4f8ff, #ffffff);
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+.hero-card {
+  background: white;
+  padding: 50px 35px;
+  border-radius: 30px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+}
+
+.hero-icon {
+  font-size: 90px;
+  color: #0d6efd;
+}
+
+.loan-type-card {
+  transition: 0.3s;
+}
+
+.loan-type-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+.loan-icon {
+  width: 65px;
+  height: 65px;
+  margin: auto;
+  border-radius: 50%;
+  background: #eaf2ff;
+  color: #0d6efd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+}
+
+.about-text {
+  max-width: 750px;
+}
+
+.about-icon-box {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+
+  border-radius: 35px;
+  background: linear-gradient(135deg, #0d6efd, #6ea8fe);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 20px 45px rgba(13, 110, 253, 0.25);
+}
+
+.about-icon-box i {
+  font-size: 120px;
+  color: white;
+}
