@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../styles/profile.css";
+import "../styles/Profile.css";
 
 function Profile() {
   return (
