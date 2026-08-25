@@ -1,0 +1,69 @@
+.applications-page {
+  min-height: calc(100vh - 72px);
+  background: #f5f7fb;
+}
+
+.applications-page .card {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.empty-applications {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: auto;
+
+  border-radius: 50%;
+
+  background: #eaf2ff;
+  color: #0d6efd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 36px;
+}
+
+.table thead {
+  background: #f8fafc;
+}
+
+.table th {
+  padding: 18px;
+  font-size: 14px;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 18px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-badge.pending {
+  background: #fff4df;
+  color: #d97706;
+}
+
+.status-badge.approved {
+  background: #e8f8ef;
+  color: #16a34a;
+}
+
+.status-badge.rejected {
+  background: #feecec;
+  color: #dc2626;
+}

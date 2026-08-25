@@ -17,7 +17,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-
+import MyApplication from "./pages/MyApplication";
 // Existing Loan Steps
 import Step1LoanType from "./pages/Step1LoanType";
 import Step2PersonalInfo from "./pages/Step2PersonalInfo";
@@ -308,6 +308,7 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/applications" element={<MyApplication />} />
 
       </Routes>
 
