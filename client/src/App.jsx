@@ -16,6 +16,7 @@ import Navbar from "./components/Navbar";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Profile from "./pages/Profile";
 
 // Existing Loan Steps
 import Step1LoanType from "./pages/Step1LoanType";
@@ -306,6 +307,7 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
 
       </Routes>
 
