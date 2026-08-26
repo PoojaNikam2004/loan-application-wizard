@@ -12,6 +12,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Components
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Pages
 import Home from "./pages/Home";
@@ -311,8 +312,10 @@ function App() {
         <Route path="/applications" element={<MyApplication />} />
 
       </Routes>
+      <Footer />
 
     </BrowserRouter>
+  
 
   );
 
